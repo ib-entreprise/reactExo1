@@ -14,23 +14,22 @@
           <script type="text/babel"> 
                
                function handleButtonClick(e){
-                    // setClicked = true;
                     console.log(e.target);
                }
                function MakeButton(){                   
                     return (
-                         <button className="bg-dark text-white p-4 "  onClick ={ handleButtonClick } >  click </button>
+                         <button className="bg-dark text-white p-4 "  onClick ={ handleButtonClick } > click </button>
                     );
                }
                function MakeGrid(){
-                    const [button, setButton] = React.useState();
+                    const [clicked, setClicked] = React.useState();
                     // console.log(button);
                     let list = [];
                     for(let i =0; i <16;i++ ){
-                         list.push(<MakeButton key= {i}  />)
+                         list.push(<MakeButton key= {i} id="afgas" />)
                     }
                     return(                         
-                         <div class="container mt-5 "> {list} </div>
+                         <div className="container mt-5 "> {list} </div>
                     );
                }
 
