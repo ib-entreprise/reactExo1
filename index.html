@@ -45,30 +45,9 @@
                         
                     );
                }
-               function handleButtonClick(e){
-                    // setClicked = true;
-                    console.log(e);
-               }
-               function MakeButton(){
-                   
-                    return (
-                         <button className="bg-dark text-white p-4 " onClick ={ handleButtonClick } >  click </button>
-                    );
-               }
-               function MakeGrid(){
-                    const [color, setColor] = React.useState('dark');
-                    const [clicked, setClicked] = React.useState(false);
-
-                    let list = [];
-                    for(let i =0; i <16;i++ ){
-                         list.push(<MakeButton key= {i} />)
-                    }
-                    return(                         
-                         <div class="container mt-5"> {list} </div>
-                    );
-               }
-
-               ReactDOM.render(<MakeGrid /> , document.getElementById('root'));
+             
+              
+               ReactDOM.render(<MakeForm /> , document.getElementById('root'));
           </script>
      </div>
      <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
