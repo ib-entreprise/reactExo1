@@ -12,18 +12,57 @@
           
           <div id="exo5"></div>
           <script type="text/babel"> 
+          
                function MakePersonne(){
                               
+                    const [listPerson, setListPerson] = React.useState([
+                         {
+                              nom: 'John Doe',
+                              genre: 'homme',
+                              Age: 25,
+                         },
+                         {
+                              nom: 'Thomas Dupont',
+                              genre: 'homme',
+                              Age: 23,
+                         },
+                         {
+                              nom: 'Julie Mawetti',
+                              genre: 'femme',
+                              Age: 19,
+                         }
+                    ]);
+                    function MakeCard({personne}){
+                         const [user, setUser] = React.useState();
+                         return (
+                              <div class="col-3">
+                                   <div class="row">
+                                       <ul> 
+                                           <li>{personne.nom}</li>
+                                           <li>{personne.genre}</li>
+                                           <li>{personne.Age}</li>
+                                        </ul>
+                                   </div>     
+                              </div>
+                         );
+                    }
                     return (
-                        
-                      <div class="container">
-                         loem
+                      <div class="container mt-5" >
+                         <div class="row">
+                              <div class="detail">
+                                   <h4>Thomas DUPONT 25 ans</h4>     
+                              </div>
+                              {listPerson.map((personne,index)=>(
+                                   <MakeCard key={index} personne={personne} />
+                              ))}
+
+                         </div>
                       </div>  
                     );
                
                     }
               
-               ReactDOM.render(<MakeAddDeleteImage /> , document.getElementById('exo5'));
+               ReactDOM.render(<MakePersonne /> , document.getElementById('exo5'));
           </script>
      </div>
      <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
