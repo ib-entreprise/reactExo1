@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>exo 4 </title>
+       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+
+</head>
+<body >
+     <div class="container">
+          
+          <div id="exo4"></div>
+          <script type="text/babel"> 
+               function MakeAddDeleteImage(){
+                    const [listImage, setListImage] = React.useState([]);
+                    function addImage(){
+                         const url = 'https://www.google.com/imgres?imgurl=https%3A%2F%2Fimg.fotocommunity.com%2Fjolie-nature-65a6ee0c-5691-4f75-805f-f38d4ea7be0c.jpg%3Fheight%3D1080&tbnid=Onm0LJ9W00nDSM&vet=12ahUKEwiLwu_vlZuDAxXmfqQEHSVQCL8QMygKegQIARB4..i&imgrefurl=https%3A%2F%2Fwww.fotocommunity.fr%2Fphoto%2Fjolie-nature-scouby65%2F20872948&docid=oDMMueAlBW9IwM&w=720&h=1080&q=image%20jolie%20nature&client=safari&ved=2ahUKEwiLwu_vlZuDAxXmfqQEHSVQCL8QMygKegQIARB4';
+                         let img = document.createElement('img');
+                         img.src = url;                      
+                         img.style.border= '1px solid black';
+                         console.log(img);
+                         const newListImage = [...listImage];   
+                         newListImage.push(url);
+                         setListImage(newListImage);
+                         console.log(listImage);
+                    }
+                    function removeImage(){
+                         const newList = [...listImage];
+                         newList.pop();
+                         setListImage(newList);
+                    }
+                    return (
+                         <div className="row mt-4">
+                              <div class="col-9" >
+                                   <h4>Elements </h4>
+                                   <ul id="displayImage"> 
+                                        {listImage.map((image,index)=>(                                             
+                                          <li key={index}>  <img src={image} alt="" /> </li>    
+                                        ))}
+                                   </ul>  
+                              </div>
+                              <div className="col-3">
+                                   
+                                   <button className="btn btn-primary" onClick={ addImage }> Ajouter</button>
+                                   <button className="btn btn-danger" onClick={ removeImage }> Supprimer</button>
+                              </div> 
+                         </div>
+                        
+                    );
+               
+                    }
+              
+               ReactDOM.render(<MakeAddDeleteImage /> , document.getElementById('exo4'));
+          </script>
+     </div>
+     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+ 
+</body>
+</html>

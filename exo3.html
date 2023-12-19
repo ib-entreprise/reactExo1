@@ -16,7 +16,6 @@
                     const [nom, setNom] = React.useState();
                     const [list, setList] = React.useState([])
                     function addItem(e){
-
                          e.preventDefault();
                          let formData = new FormData();
                          formData.append('nom', nom);
@@ -32,18 +31,22 @@
                               // alert( nom +" est une ville magnifique  ");
                               const newList = [...list];
                               newList.push(nom );
-                              setList(newList);
-                              console.log(newList);
+                              setList(newList);                           
                          }
+                    }
+                    function handleButtonDelete(element){
+                         const newCityList = list.filter(c => element !=c );
+                         setList(newCityList);
                     }
                     return (
                          <div className="row mt-4">
                               <div class="col-6">
-                                   <h4>Liste des Villes</h4>   
+                                   <h4>Liste des Villes</h4>  
+                                   <ul>
                                     {list.map((element, index) => (
-                                        <p key={index}>{element}</p>
+                                        <li key={index}>{element} <button onClick={handleButtonDelete(element)}>x</button></li>
                                    ))}
-                                   
+                              </ul> 
                                     
                               </div>
                               <div className="col-6">
